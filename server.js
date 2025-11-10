@@ -12,7 +12,7 @@ const TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
 
 app.use(cors({
-  origin: ["http://localhost:5174", "https://moving-v2.vercel.app/"], // адрес фронтенда
+  origin: ["http://localhost:5174", "https://moving-v2.vercel.app"], // адрес фронтенда
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));
