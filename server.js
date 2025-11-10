@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -11,7 +12,11 @@ const PORT = process.env.PORT || 5050;
 const TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5174", "https://moving-v2.vercel.app/"], // адрес фронтенда
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+}));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Сервер работает ✅"));
